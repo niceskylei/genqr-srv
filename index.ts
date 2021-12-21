@@ -12,15 +12,16 @@ app.use(router.allowedMethods());
 app.use(router.routes());
 
 router.get("/genqr", (ctx) => {
-    let text = ctx.request.url.searchParams.get('text')
+    const text = ctx.request.url.searchParams.get('text')
+    const color = ctx.request.url.searchParams.get('color') || 'black'
     if (text === undefined || text === "") {
         ctx.response.status = Status.BadRequest
         ctx.response.body = "Query text invaild"
         return
     }
-    let qrcode = beautifyQrcode.encodeData({text, correctLevel: 2})
+    const qrcode = beautifyQrcode.encodeData({text, correctLevel: 2})
     if (qrcode) {
-        let data = beautifyQrcode.rendererRound(qrcode, {opacity: 60});
+        const data = beautifyQrcode.rendererRound(qrcode, {opacity: 60, posColor: color, otherColor: color});
         ctx.response.type = "image/svg+xml";
         ctx.response.body = data;
         return
