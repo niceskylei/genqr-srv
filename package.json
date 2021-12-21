@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "beautify-qrcode": "^1.0.3"
+  }
+}
