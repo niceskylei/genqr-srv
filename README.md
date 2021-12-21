@@ -8,7 +8,7 @@ https://deno.land/#installation
 npm run serve
 
 ## Dev Mode, Auto reload serve
-npm run serve
+npm run dev
 
 ## deps
 https://github.com/gexin1/beautify-qrcode
