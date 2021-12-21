@@ -1,9 +1,8 @@
 import { Application, Router, Status } from "https://deno.land/x/oak/mod.ts";
-
 import { createRequire } from "https://deno.land/std/node/module.ts";
 
 const require = createRequire(import.meta.url);
-const beautifyQrcode = require("beautify-qrcode");
+const beautifyQrcode = require("./vendor/beautifyQrcode.js");
 
 const app = new Application();
 const router = new Router();
